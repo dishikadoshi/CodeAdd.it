@@ -1,0 +1,22 @@
+services:
+  # The Execution Engine (Standard Power Mode)
+  piston:
+    image: ghcr.io/engineer-man/piston:latest
+    container_name: sync-code-piston
+    privileged: true
+    user: "0:0"
+    ports:
+      - "2000:2000"
+    restart: always
+    tmpfs:
+      - /tmp
+      - /var/lib/isolate
+      - /piston/isolate
+      - /piston/jobs
+    volumes:
+      - piston_data:/piston/data
+      - piston_packages:/piston/packages
+
+volumes:
+  piston_data:
+  piston_packages:

@@ -1,0 +1,33 @@
+{
+    "name": "codeadd-it",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "dependencies": {
+        "codemirror": "^5.65.2",
+        "express": "^4.21.2",
+        "pm2": "^5.3.1",
+        "react": "^18.0.0",
+        "react-avatar": "^4.0.0",
+        "react-dom": "^18.0.0",
+        "react-hot-toast": "^2.2.0",
+        "react-router-dom": "^6.3.0",
+        "recoil": "^0.7.0",
+        "socket.io": "^4.4.1",
+        "socket.io-client": "^4.4.1",
+        "uuid": "^8.3.2"
+    },
+    "scripts": {
+        "start": "vite",
+        "start:docker": "pm2 start server.js && npm run start",
+        "build": "vite build",
+        "preview": "vite preview",
+        "server:dev": "powershell -Command \"Stop-Process -Id (Get-NetTCPConnection -LocalPort 5000 -ErrorAction SilentlyContinue).OwningProcess -Force -ErrorAction SilentlyContinue\" & nodemon --watch server.js server.js",
+        "server:prod": "node server.js"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.2.1",
+        "nodemon": "^2.0.15",
+        "vite": "^5.1.6"
+    }
+}
